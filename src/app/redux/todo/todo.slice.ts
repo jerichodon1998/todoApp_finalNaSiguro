@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { createSlice, PayloadAction, getDefaultMiddleware } from "@reduxjs/toolkit"
 
 import TodoRepositoryImpl from "../../../data/repositories/TodoRepositoryImpl"
 import Todo from "../../../domain/entities/Todo"
@@ -30,7 +30,6 @@ export const todoSlice = createSlice({
                 todoService().SetTodo(oldData)
             },
             prepare: (todo: Todo) => {
-                console.log(todo)
                 return { payload: todo }
             },
         },
@@ -45,7 +44,6 @@ export const todoSlice = createSlice({
                 state.todos = updatedState
             },
             prepare: (todo: Todo) => {
-                console.log(todo)
                 return { payload: todo }
             },
         },
@@ -55,7 +53,6 @@ export const todoSlice = createSlice({
                 todoService().SetTodo(state.todos)
             },
             prepare: (todo: Todo) => {
-                console.log(todo)
                 return { payload: todo }
             },
         },
